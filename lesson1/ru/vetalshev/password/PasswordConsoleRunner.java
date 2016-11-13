@@ -9,12 +9,12 @@ public class PasswordConsoleRunner {
 
         final String PASSWORD_SAMPLE = "vetalshev";
 
-        Console console = null; // ??? почему сбилдилось, по идее должна быть ошибка типов
+        Console console = null; // ??? почему сбилдилось, по идее должна быть ошибка типов [RESOLVED]
         String name = null;
 
         try {
             // creates a console object
-            console = System.console(); // ??? почему System.console(), а не new Console();
+            console = System.console(); // ??? почему System.console(), а не new Console(); [RESOLVED]
 
             if (console != null) {
 
@@ -26,18 +26,19 @@ public class PasswordConsoleRunner {
                 System.out.println("");
 
                 System.out.println("Name is: " + name);
-                System.out.println("Password is: " + String.valueOf(pwd)); // ??? почему нужно явно приведение типов
+                System.out.println("Password is: " + String.valueOf(pwd)); // ??? почему нужно явно приведение типов [RESOLVED]
 
                 System.out.println("");
 
-                if (PASSWORD_SAMPLE == String.valueOf(pwd)) { // ??? почему всегда не совпадают
+                // TODO: сравнивать переменные нужно по значению, а не по ссылке
+                if (PASSWORD_SAMPLE.equals(String.valueOf(pwd))) { // ??? почему всегда не совпадают [RESOLVED]
                     System.out.println("Typed password matches to Password template!");
                 } else {
                     System.out.println("Typed password DOESN'T match to Password template!");
                 }
 
             }
-        } catch (Exception ex) { // ??? Exception это суперкласс для всех типов эксепшенов?
+        } catch (Exception ex) { // ??? Exception это суперкласс для всех типов эксепшенов? [RESOLVED]
             ex.printStackTrace();
         }
     }

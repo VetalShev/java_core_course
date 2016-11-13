@@ -9,7 +9,12 @@ public class ArgumentsSum {
         int totalSum = 0;
 
         for (int i = 0; i < args.length; i++) {
-            totalSum += Integer.parseInt(args[i]);
+            try {
+                totalSum += Integer.parseInt(args[i]);
+                // TODO: добавить конструкцию try-catch для избежания эксепшенов [RESOLVED]
+            } catch (NumberFormatException exception) {
+                exception.printStackTrace();
+            }
         }
 
         System.out.println("Total sum of arguments: " + totalSum);
