@@ -33,7 +33,7 @@ public class TaskManager {
             System.out.println("Type the task start date in format yyyy-mm-dd:");
             startDate = scan.nextLine();
 
-            if (isValidDate(startDate)) {
+            if (isValidDate2(startDate)) {
                 break;
             } else {
                 System.out.println(WRONG_DATE_FORMAT_MESSAGE);
@@ -44,7 +44,7 @@ public class TaskManager {
             System.out.println("Type the task finish date in format yyyy-mm-dd:");
             finishDate = scan.nextLine();
 
-            if (isValidDate(startDate)) { // ??? What method is faster, isValidDate() or isValidDate2()?
+            if (isValidDate2(startDate)) { // ??? What method is faster, isValidDate() or isValidDate2()?
                 break;
             } else {
                 System.out.println(WRONG_DATE_FORMAT_MESSAGE);
@@ -80,3 +80,13 @@ public class TaskManager {
         }
     }
 }
+
+//    Calendar cal = Calendar.getInstance();
+//    cal.setLenient(false);
+//        cal.setTime(yourDate);
+//        try {
+//        cal.getTime();
+//        }
+//        catch (Exception e) {
+//        System.out.println("Invalid date");
+//        }
