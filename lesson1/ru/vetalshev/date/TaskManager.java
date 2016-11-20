@@ -28,7 +28,7 @@ public class TaskManager {
         String startDate = null;
         String finishDate = null;
 
-        // ??? Terrible compilation output
+        // ??? Terrible compilation output [RESOLVED]
         while (true) {
             System.out.println("Type the task start date in format yyyy-mm-dd:");
             startDate = scan.nextLine();
