@@ -17,6 +17,7 @@ public class NumberExercisesRunner {
         numbers.add(1);
         numbers.add(10);
         numbers.add(11);
+        numbers.add(-2729);
         numbers.add(12);
         numbers.add(24);
         numbers.add(44);
@@ -47,6 +48,33 @@ public class NumberExercisesRunner {
 
         int smallestNumber = listNumberUtils.getSmallest();
         System.out.println("The smallest number is: " + smallestNumber);
+        System.out.println("==============");
+
+        List<Integer> multiplenessTo3List = listNumberUtils.getEven(3);
+
+        System.out.println("Multipleness to 3:");
+        for (int number : multiplenessTo3List) {
+            System.out.println(number);
+        }
+        System.out.println("==============");
+
+        List<Integer> multiplenessTo9List = listNumberUtils.getEven(9);
+
+        System.out.println("Multipleness to 9:");
+        for (int number : multiplenessTo9List) {
+            System.out.println(number);
+        }
+        System.out.println("==============");
+
+        List<Integer> descendingOrderList = listNumberUtils.getInDescendingOrder();
+
+        System.out.println("List in descending order:");
+        for (int number : descendingOrderList) {
+            System.out.println(number);
+        }
+        System.out.println("==============");
+
+
 
     }
 

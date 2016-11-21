@@ -23,6 +23,18 @@ public class ListNumberUtils {
         return evenList;
     }
 
+    public List<Integer> getEven(int divider) {
+        List<Integer> dividedOnDividerList = new ArrayList<>();
+
+        for (int number : numbers) {
+            if (number % divider == 0) {
+                dividedOnDividerList.add(number);
+            }
+        }
+
+        return dividedOnDividerList;
+    }
+
     public List<Integer> getOdd() {
         List<Integer> oddList = new ArrayList<>();
 
@@ -57,6 +69,37 @@ public class ListNumberUtils {
         }
 
         return largestNumber;
+    }
+
+    public List<Integer> getInDescendingOrder() {
+        List<Integer> list = new ArrayList<>();
+
+        // copy base array to temporary (to prevent base array modifications)
+        for (int item : numbers) {
+            list.add(item);
+        }
+
+        for (int i = 0, len = list.size() - 1; i < len; i++) {
+
+            boolean isSwapped = false;
+            int j = 0;
+
+            while (j < len - i) {
+                if (list.get(j) < list.get(j+1)) {
+                    int temporary = list.get(j+1);
+                    list.set(j+1, list.get(j));
+                    list.set(j, temporary);
+                    isSwapped = true;
+                }
+                j++;
+            }
+
+            if (!isSwapped) {
+                break;
+            }
+        }
+
+        return list;
     }
 
 }
