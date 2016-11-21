@@ -42,6 +42,11 @@ public class NumberExercisesRunner {
         }
         System.out.println("==============");
 
+        int largestNumber = listNumberUtils.getLargest();
+        System.out.println("The largest number is: " + largestNumber);
+
+        int smallestNumber = listNumberUtils.getSmallest();
+        System.out.println("The smallest number is: " + smallestNumber);
 
     }
 

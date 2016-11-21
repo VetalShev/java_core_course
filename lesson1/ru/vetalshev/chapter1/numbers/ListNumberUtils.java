@@ -35,4 +35,28 @@ public class ListNumberUtils {
         return oddList;
     }
 
+    public int getLargest() {
+        int largestNumber = Integer.MIN_VALUE;
+
+        for (int number : numbers) {
+            if (number > largestNumber) {
+                largestNumber = number;
+            }
+        }
+
+        return largestNumber;
+    }
+
+    public int getSmallest() {
+        int largestNumber = Integer.MAX_VALUE;
+
+        for (int number : numbers) {
+            if (number < largestNumber) {
+                largestNumber = number;
+            }
+        }
+
+        return largestNumber;
+    }
+
 }
