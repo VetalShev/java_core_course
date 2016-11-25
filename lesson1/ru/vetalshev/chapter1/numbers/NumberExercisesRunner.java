@@ -13,35 +13,30 @@ public class NumberExercisesRunner {
 //        int[] numbers = numbersGenerator.generate(5);
 
         List<Integer> numbers = new ArrayList<>();
+        Printer printer = new Printer();
 
         numbers.add(1);
         numbers.add(10);
         numbers.add(11);
+        numbers.add(13);
+        numbers.add(15);
         numbers.add(-2729);
-        numbers.add(12);
-        numbers.add(24);
-        numbers.add(44);
-        numbers.add(7);
+        numbers.add(125);
+        numbers.add(244);
+        numbers.add(441);
+        numbers.add(74123);
         numbers.add(243);
 
         ListNumberUtils listNumberUtils = new ListNumberUtils(numbers);
 
 
         List<Integer> evenNumbers = listNumberUtils.getEven();
-
         System.out.println("Odd number list:");
-        for (int evenNumber : evenNumbers) {
-            System.out.println(evenNumber);
-        }
-        System.out.println("==============");
+        printer.print(evenNumbers);
 
         List<Integer> oddNumbers = listNumberUtils.getOdd();
-
         System.out.println("Odd number list:");
-        for (int oddNumber : oddNumbers) {
-            System.out.println(oddNumber);
-        }
-        System.out.println("==============");
+        printer.print(oddNumbers);
 
         int largestNumber = listNumberUtils.getLargest();
         System.out.println("The largest number is: " + largestNumber);
@@ -51,30 +46,24 @@ public class NumberExercisesRunner {
         System.out.println("==============");
 
         List<Integer> multiplenessTo3List = listNumberUtils.getEven(3);
-
         System.out.println("Multipleness to 3:");
-        for (int number : multiplenessTo3List) {
-            System.out.println(number);
-        }
-        System.out.println("==============");
+        printer.print(multiplenessTo3List);
 
         List<Integer> multiplenessTo9List = listNumberUtils.getEven(9);
-
         System.out.println("Multipleness to 9:");
-        for (int number : multiplenessTo9List) {
-            System.out.println(number);
-        }
-        System.out.println("==============");
+        printer.print(multiplenessTo9List);
 
         List<Integer> descendingOrderList = listNumberUtils.getInDescendingOrder();
-
         System.out.println("List in descending order:");
-        for (int number : descendingOrderList) {
-            System.out.println(number);
-        }
-        System.out.println("==============");
+        printer.print(descendingOrderList);
 
+        List<Integer> simpleNumbersList = listNumberUtils.getSimpleNumbers();
+        System.out.println("Simple numbers list:");
+        printer.print(simpleNumbersList);
 
+        List<Integer> threeUniqueDigitsNumbers = listNumberUtils.getThreeDigitNonRepeatingNumbers();
+        System.out.println("Three-digit numbers where all the symbols is unique:");
+        printer.print(threeUniqueDigitsNumbers);
 
     }
 
