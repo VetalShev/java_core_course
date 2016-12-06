@@ -47,4 +47,14 @@ public class Computer {
 
         return totalPrice;
     }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "cdRom=" + cdRom +
+                ",\n\r hdd=" + hdd +
+                ",\n\r processor=" + processor +
+                ",\n\r ram=" + ram +
+                '}';
+    }
 }

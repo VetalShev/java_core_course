@@ -2,6 +2,7 @@ package ru.vetalshev.chapter4.computer.components;
 
 public class Ram {
 
+    private int id;
     private int volume;
     private int frequency;
     private float voltage;
@@ -9,6 +10,27 @@ public class Ram {
     private String type;
     private String formFactor;
     private String manufacturer;
+
+    public Ram() {}
+
+    public Ram(int id, int volume, int frequency, float voltage, float price, String type, String formFactor, String manufacturer) {
+        this.id = id;
+        this.volume = volume;
+        this.frequency = frequency;
+        this.voltage = voltage;
+        this.price = price;
+        this.type = type;
+        this.formFactor = formFactor;
+        this.manufacturer = manufacturer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public float getPrice() {
         return price;
@@ -64,5 +86,19 @@ public class Ram {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    @Override
+    public String toString() {
+        return "Ram{" +
+                "id=" + id +
+                ", volume=" + volume +
+                ", frequency=" + frequency +
+                ", voltage=" + voltage +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", formFactor='" + formFactor + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                '}';
     }
 }

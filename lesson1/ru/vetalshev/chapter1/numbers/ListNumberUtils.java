@@ -183,4 +183,26 @@ public class ListNumberUtils {
         return isSimple;
     }
 
+    // Наибольший общий делитель и наименьшее общее кратное этих чисел
+    public int getNOD(List<Integer> numbers) {
+        return 1;
+    }
+
+    public List<Integer> getSimpleDividersList(int number) {
+        List<Integer> simpleNumberList = new ArrayList<>();
+
+        int dividedNumber = number;
+
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                dividedNumber = (int)(number / i);
+                simpleNumberList.add(i);
+            } else {
+                continue;
+            }
+        }
+
+        return simpleNumberList;
+    }
+
 }
