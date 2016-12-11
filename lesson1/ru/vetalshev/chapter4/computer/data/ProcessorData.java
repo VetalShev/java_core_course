@@ -27,7 +27,7 @@ public class ProcessorData {
     }
 
     private void addItem(int id, String name, String manufacturer, float price, String cache, int coreNumber) {
-        Processor processor = new Processor(id, name, manufacturer, price, cache, coreNumber);
+        Processor processor = new Processor(name);
         processorList.add(processor);
     }
 

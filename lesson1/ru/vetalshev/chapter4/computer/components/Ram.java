@@ -1,43 +1,16 @@
 package ru.vetalshev.chapter4.computer.components;
 
-public class Ram {
+public class Ram extends Product {
 
-    private int id;
     private int volume;
     private int frequency;
     private float voltage;
-    private float price;
     private String type;
     private String formFactor;
     private String manufacturer;
 
-    public Ram() {}
-
-    public Ram(int id, int volume, int frequency, float voltage, float price, String type, String formFactor, String manufacturer) {
-        this.id = id;
-        this.volume = volume;
-        this.frequency = frequency;
-        this.voltage = voltage;
-        this.price = price;
-        this.type = type;
-        this.formFactor = formFactor;
-        this.manufacturer = manufacturer;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
+    public Ram(String code) {
+        super(code);
     }
 
     public int getVolume() {
@@ -91,14 +64,12 @@ public class Ram {
     @Override
     public String toString() {
         return "Ram{" +
-                "id=" + id +
+                "formFactor='" + formFactor + '\'' +
                 ", volume=" + volume +
                 ", frequency=" + frequency +
                 ", voltage=" + voltage +
-                ", price=" + price +
                 ", type='" + type + '\'' +
-                ", formFactor='" + formFactor + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
-                '}';
+                "} " + super.toString();
     }
 }

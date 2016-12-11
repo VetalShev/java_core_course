@@ -26,7 +26,7 @@ public class HddData {
     }
 
     private void addItem(int id, String name, String manufacturer, String formFactor, int volume, float price) {
-        Hdd hdd = new Hdd(id, name, manufacturer, formFactor, volume, price);
+        Hdd hdd = new Hdd(name);
         hddList.add(hdd);
     }
 

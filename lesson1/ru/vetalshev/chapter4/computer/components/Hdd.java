@@ -1,39 +1,13 @@
 package ru.vetalshev.chapter4.computer.components;
 
-public class Hdd {
+public class Hdd extends Product {
 
-    private int id;
-    private String name;
     private String manufacturer;
     private String formFactor;
     private int volume;
-    private float price;
 
-    public Hdd() {}
-
-    public Hdd(int id, String name, String manufacturer, String formFactor, int volume, float price) {
-        this.id = id;
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.formFactor = formFactor;
-        this.volume = volume;
-        this.price = price;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Hdd(String code) {
+        super(code);
     }
 
     public String getManufacturer() {
@@ -60,23 +34,12 @@ public class Hdd {
         this.volume = volume;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     @Override
     public String toString() {
         return "Hdd{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
+                "manufacturer='" + manufacturer + '\'' +
                 ", formFactor='" + formFactor + '\'' +
                 ", volume=" + volume +
-                ", price=" + price +
                 '}';
     }
 }

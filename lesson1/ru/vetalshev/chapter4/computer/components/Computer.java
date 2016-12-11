@@ -1,9 +1,4 @@
-package ru.vetalshev.chapter4.computer;
-
-import ru.vetalshev.chapter4.computer.components.CdRom;
-import ru.vetalshev.chapter4.computer.components.Hdd;
-import ru.vetalshev.chapter4.computer.components.Processor;
-import ru.vetalshev.chapter4.computer.components.Ram;
+package ru.vetalshev.chapter4.computer.components;
 
 public class Computer {
 
@@ -13,15 +8,7 @@ public class Computer {
     private Ram ram;
 
     // Нужно ли хранить цену всего компьютера или вычеслять ее постоянно??? [RESOLVED]
-
     public Computer() {
-    }
-
-    public Computer(CdRom cdRom, Hdd hdd, Processor processor, Ram ram) {
-        this.cdRom = cdRom;
-        this.hdd = hdd;
-        this.processor = processor;
-        this.ram = ram;
     }
 
     public void addProcessor(Processor processor) {

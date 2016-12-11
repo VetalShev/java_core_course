@@ -25,7 +25,7 @@ public class RamData {
     }
 
     private void addItem(int id, int volume, int frequency, float voltage, float price, String type, String formFactor, String manufacturer) {
-        Ram cdRom = new Ram(id, volume, frequency, voltage, price, type, formFactor, manufacturer);
+        Ram cdRom = new Ram("");
         ramList.add(cdRom);
     }
     
