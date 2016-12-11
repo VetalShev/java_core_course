@@ -18,6 +18,7 @@ public class RamData {
     }
 
     private void createList() {
+        // почему обязательно следует писать символ "f" чтобы привести к float ??? [RESOLVED]
         addItem(1, 8192, 1600, 1.5f, 65, "SO-DIMM", "notebook", "Hitachi");
         addItem(2, 8192, 1600, 1.5f, 35, "SO-DIMM", "notebook", "Genius");
         addItem(3, 4096, 1600, 1.5f, 28, "SO-DIMM", "PC", "SAMSUNG");

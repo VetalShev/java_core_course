@@ -12,7 +12,7 @@ public class Computer {
     private Processor processor;
     private Ram ram;
 
-    // Нужно ли хранить цену всего компьютера или вычеслять ее постоянно???
+    // Нужно ли хранить цену всего компьютера или вычеслять ее постоянно??? [RESOLVED]
 
     public Computer() {
     }
