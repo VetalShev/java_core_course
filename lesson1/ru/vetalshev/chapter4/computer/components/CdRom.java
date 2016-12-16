@@ -2,19 +2,13 @@ package ru.vetalshev.chapter4.computer.components;
 
 public class CdRom extends Product {
 
-    public CdRom(String code) {
-        super(code);
-    }
-
-    private String manufacturer;
     private String type;
 
-    public String getManufacturer() {
-        return manufacturer;
+    public CdRom() {
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public CdRom(String code) {
+        super(code);
     }
 
     public String getType() {
@@ -28,27 +22,23 @@ public class CdRom extends Product {
     @Override
     public String toString() {
         return "CdRom{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+                "type='" + type + '\'' +
+                "} " + super.toString();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CdRom)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         CdRom cdRom = (CdRom) o;
 
-        if (!manufacturer.equals(cdRom.manufacturer)) return false;
-        return type.equals(cdRom.type);
+        return type != null ? type.equals(cdRom.type) : cdRom.type == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = manufacturer.hashCode();
-        result = 31 * result + type.hashCode();
-        return result;
+        return type != null ? type.hashCode() : 0;
     }
 }

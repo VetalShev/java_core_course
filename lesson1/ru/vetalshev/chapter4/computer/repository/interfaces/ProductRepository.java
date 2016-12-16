@@ -1,4 +1,4 @@
-package ru.vetalshev.chapter4.computer.data;
+package ru.vetalshev.chapter4.computer.repository.interfaces;
 
 import ru.vetalshev.chapter4.computer.components.Product;
 

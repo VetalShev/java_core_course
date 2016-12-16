@@ -2,20 +2,14 @@ package ru.vetalshev.chapter4.computer.components;
 
 public class Hdd extends Product {
 
-    private String manufacturer;
     private String formFactor;
     private int volume;
 
+    public Hdd() {
+    }
+
     public Hdd(String code) {
         super(code);
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
     }
 
     public String getFormFactor() {
@@ -37,9 +31,8 @@ public class Hdd extends Product {
     @Override
     public String toString() {
         return "Hdd{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", formFactor='" + formFactor + '\'' +
+                "formFactor='" + formFactor + '\'' +
                 ", volume=" + volume +
-                '}';
+                "} " + super.toString();
     }
 }

@@ -1,15 +1,16 @@
-package ru.vetalshev.chapter4.computer.data;
+package ru.vetalshev.chapter4.computer.repository.implementations;
 
 import ru.vetalshev.chapter4.computer.components.Hdd;
+import ru.vetalshev.chapter4.computer.repository.interfaces.HddRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HddData {
+public class HddRepositoryImpl extends ProductRepositoryImpl<Hdd> implements HddRepository {
 
     private List<Hdd> hddList = new ArrayList<>();
 
-    public HddData() {
+    public HddRepositoryImpl() {
         createList();
     }
 

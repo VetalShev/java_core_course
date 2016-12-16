@@ -7,7 +7,9 @@ public class Ram extends Product {
     private float voltage;
     private String type;
     private String formFactor;
-    private String manufacturer;
+
+    public Ram() {
+    }
 
     public Ram(String code) {
         super(code);
@@ -53,23 +55,14 @@ public class Ram extends Product {
         this.formFactor = formFactor;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
     @Override
     public String toString() {
         return "Ram{" +
-                "formFactor='" + formFactor + '\'' +
-                ", volume=" + volume +
+                "volume=" + volume +
                 ", frequency=" + frequency +
                 ", voltage=" + voltage +
                 ", type='" + type + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
+                ", formFactor='" + formFactor + '\'' +
                 "} " + super.toString();
     }
 }

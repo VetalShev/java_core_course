@@ -1,21 +1,16 @@
 package ru.vetalshev.chapter4.computer.components;
 
+//@Constraint (validatedBy = ProcessorValidator.class)
 public class Processor extends Product {
 
-    private String manufacturer;
     private String cache;
     private int coresNumber;
 
+    public Processor() {
+    }
+
     public Processor(String code) {
         super(code);
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
     }
 
     public String getCache() {
@@ -37,9 +32,8 @@ public class Processor extends Product {
     @Override
     public String toString() {
         return "Processor{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", cache='" + cache + '\'' +
+                "cache='" + cache + '\'' +
                 ", coresNumber=" + coresNumber +
-                '}';
+                "} " + super.toString();
     }
 }

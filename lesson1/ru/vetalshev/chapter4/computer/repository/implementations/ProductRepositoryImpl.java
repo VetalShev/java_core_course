@@ -1,6 +1,7 @@
-package ru.vetalshev.chapter4.computer.data;
+package ru.vetalshev.chapter4.computer.repository.implementations;
 
 import ru.vetalshev.chapter4.computer.components.Product;
+import ru.vetalshev.chapter4.computer.repository.interfaces.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
