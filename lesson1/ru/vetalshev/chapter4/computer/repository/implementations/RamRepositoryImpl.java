@@ -5,6 +5,8 @@ import ru.vetalshev.chapter4.computer.repository.interfaces.RamRepository;
 
 public class RamRepositoryImpl extends ProductRepositoryImpl<Ram> implements RamRepository {
 
-
+    public String getContentType() {
+        return "Ram";
+    }
 
 }

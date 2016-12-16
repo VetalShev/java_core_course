@@ -3,7 +3,6 @@ package ru.vetalshev.chapter4;
 import ru.vetalshev.chapter4.computer.components.*;
 
 import ru.vetalshev.chapter4.computer.repository.implementations.*;
-import ru.vetalshev.chapter4.computer.repository.interfaces.ProductRepository;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,88 +11,37 @@ public class AssembleComputerApp {
 
     private static Scanner scan = new Scanner(System.in);
 
-    // не отрабатывает конструктор класса приложения? т.к. экземпляр класса не создается.
+    Computer myPC = new Computer();
+
+    private CdRomRepositoryImpl cdRomRepository = new CdRomRepositoryImpl();
+    private HddRepositoryImpl hddRepository = new HddRepositoryImpl();
+    private ProcessorRepositoryImpl processorRepository = new ProcessorRepositoryImpl();
+    private RamRepositoryImpl ramRepository = new RamRepositoryImpl();
+
+    // не отрабатывает конструктор класса приложения? т.к. экземпляр класса не создается. [RESOLVED]
     // Где проводить тогда инициализацию полей, в main?
     public AssembleComputerApp() {
-        scan = new Scanner(System.in);
     }
 
-    public static void main(String[] args) {
+    public void init() {
+        createCdRomList();
+        createHddList();
+        createProcessorList();
+        createRamList();
 
-        CdRomRepositoryImpl cdRomRepository = new CdRomRepositoryImpl();
-        HddRepositoryImpl hddRepository = new HddRepositoryImpl();
-        ProcessorRepositoryImpl processorRepository = new ProcessorRepositoryImpl();
-        RamRepositoryImpl ramRepository = new RamRepositoryImpl();
+        assemble();
+    }
 
-        createCdRomList(cdRomRepository);
-        createHddList(hddRepository);
-        createProcessorList(processorRepository);
-        createRamList(ramRepository);
-
-        Computer myPC = new Computer();
-
-//        CdRom myCdRom = (CdRom) chooseComponent(cdRomRepository);
-//        Processor myProcessor = (Processor) chooseComponent(processorRepository);
-//        Hdd myHdd = (Hdd) chooseComponent(hddRepository);
-//        Ram myRam = (Ram) chooseComponent(ramRepository);
-
-        System.out.println("Choose CD-rom from:");
-        List<CdRom> cdRoms = cdRomRepository.getProductList();
-
-        System.out.println("=======================");
-        for (Product cdRom : cdRoms) {
-            System.out.println(cdRom);
-        }
-        System.out.println("=======================");
-
-        String cdRomQuery = scan.nextLine();
-        CdRom myCdRom = cdRomRepository.findByCode(cdRomQuery);
-
-
-        System.out.println("Choose Processor from:");
-        List<Processor> processors = processorRepository.getProductList();
-
-        System.out.println("=======================");
-        for (Product processor : processors) {
-            System.out.println(processor);
-        }
-        System.out.println("=======================");
-
-        String processorQuery = scan.nextLine();
-        Processor myProcessor = processorRepository.findByCode(processorQuery);
-
-
-        System.out.println("Choose Hdd from:");
-        List<Hdd> hdds = hddRepository.getProductList();
-
-        System.out.println("=======================");
-        for (Product hdd : hdds) {
-            System.out.println(hdd);
-        }
-        System.out.println("=======================");
-
-        String hddQuery = scan.nextLine();
-        Hdd myHdd = hddRepository.findByCode(hddQuery);
-
-
-        System.out.println("Choose Ram from:");
-        List<Ram> rams = ramRepository.getProductList();
-
-        System.out.println("=======================");
-        for (Product ram : rams) {
-            System.out.println(ram);
-        }
-        System.out.println("=======================");
-
-        String ramQuery = scan.nextLine();
-        Ram myRam = ramRepository.findByCode(ramQuery);
-
+    private void assemble() {
+        CdRom myCdRom = chooseComponent(cdRomRepository);
+        Processor myProcessor = chooseComponent(processorRepository);
+        Hdd myHdd = chooseComponent(hddRepository);
+        Ram myRam = chooseComponent(ramRepository);
 
         myPC.addCdRom(myCdRom);
         myPC.addProcessor(myProcessor);
         myPC.addHdd(myHdd);
         myPC.addRam(myRam);
-
 
         System.out.println("My PC is:\n" + myPC);
         System.out.println("=======================");
@@ -101,10 +49,14 @@ public class AssembleComputerApp {
         System.out.println("Total computer price:" + myPC.getTotalPrice());
         System.out.println("=======================");
         System.out.println("=======================");
-
     }
 
-    private static void createCdRomList(CdRomRepositoryImpl cdRomRepository) {
+    public static void main(String[] args) {
+        AssembleComputerApp app = new AssembleComputerApp();
+        app.init();
+    }
+
+    private void createCdRomList() {
         CdRom cdRom1 = new CdRom();
         cdRom1.setCode("SAMSUNG DVD-RW white SE6536548 BlueRay DoubleLayer");
         cdRom1.setPrice(155);
@@ -127,7 +79,7 @@ public class AssembleComputerApp {
         cdRomRepository.addItem(cdRom3);
     }
 
-    private static void createHddList(HddRepositoryImpl hddRepository) {
+    private void createHddList() {
         Hdd hdd1 = new Hdd();
         hdd1.setCode("Hitachi 500GB SATA 7200rpm 2.5\"");
         hdd1.setManufacturer("Hitachi");
@@ -169,7 +121,7 @@ public class AssembleComputerApp {
         hddRepository.addItem(hdd5);
     }
 
-    private static void createProcessorList(ProcessorRepositoryImpl processorRepository) {
+    private void createProcessorList() {
         Processor processor1 = new Processor();
         processor1.setCode("intel i7 6700k 4.0GHz 8cores 8Mb cache L3");
         processor1.setManufacturer("intel");
@@ -211,7 +163,7 @@ public class AssembleComputerApp {
         processorRepository.addItem(processor5);
     }
 
-    private static void createRamList(RamRepositoryImpl ramRepository) {
+    private void createRamList() {
         Ram ram1 = new Ram();
         ram1.setCode("Hitachi DDR3L 8192Mb SO-DIMM 1.5V");
         ram1.setManufacturer("Hitachi");
@@ -231,19 +183,20 @@ public class AssembleComputerApp {
         ramRepository.addItem(ram3);
     }
 
-    private static Product chooseComponent(ProductRepositoryImpl<Product> repository) {
-
-        System.out.println("Choose Ram from:");
-        List<Product> products = repository.getProductList();
+    private static <T extends Product> T chooseComponent(ProductRepositoryImpl<T> repository) {
+        System.out.println("Choose " + repository.getContentType() + " from:");
+        List<T> products = repository.getProductList();
 
         System.out.println("=======================");
-        for (Product ram : products) {
+        for (T ram : products) {
             System.out.println(ram);
         }
         System.out.println("=======================");
 
         String productQuery = scan.nextLine();
-        Product myProduct = repository.findByCode(productQuery);
+        T myProduct = repository.findByCode(productQuery);
+
+        System.out.println(myProduct);
 
         return myProduct;
     }

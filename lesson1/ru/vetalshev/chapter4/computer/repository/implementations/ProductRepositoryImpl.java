@@ -43,4 +43,9 @@ public abstract class ProductRepositoryImpl<T extends Product> implements Produc
         return null;
     }
 
+    public String getContentType() {
+        return "Product";
+    }
+
+
 }
