@@ -1,6 +1,9 @@
 package ru.vetalshev.chapter4.computer.components;
 
-//@Constraint (validatedBy = ProcessorValidator.class)
+import ru.vetalshev.chapter4.computer.annotations.Constraint;
+import ru.vetalshev.chapter4.computer.validators.ProcessorValidator;
+
+@Constraint(validatedBy = ProcessorValidator.class)
 public class Processor extends Product {
 
     private String cache;

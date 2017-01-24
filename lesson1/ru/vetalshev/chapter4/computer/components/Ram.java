@@ -1,5 +1,9 @@
 package ru.vetalshev.chapter4.computer.components;
 
+import ru.vetalshev.chapter4.computer.annotations.Constraint;
+import ru.vetalshev.chapter4.computer.validators.RamValidator;
+
+@Constraint(validatedBy = RamValidator.class)
 public class Ram extends Product {
 
     private int volume;

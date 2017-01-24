@@ -1,5 +1,9 @@
 package ru.vetalshev.chapter4.computer.components;
 
+import ru.vetalshev.chapter4.computer.annotations.Constraint;
+import ru.vetalshev.chapter4.computer.validators.HddValidator;
+
+@Constraint(validatedBy = HddValidator.class)
 public class Hdd extends Product {
 
     private String formFactor;

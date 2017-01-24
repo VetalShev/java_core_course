@@ -3,6 +3,8 @@ package ru.vetalshev.chapter4;
 import ru.vetalshev.chapter4.computer.components.*;
 
 import ru.vetalshev.chapter4.computer.repository.implementations.*;
+import ru.vetalshev.chapter4.computer.services.ValidationService;
+import ru.vetalshev.chapter4.computer.services.ValidationServiceImpl;
 
 import java.util.List;
 import java.util.Scanner;
@@ -29,6 +31,11 @@ public class AssembleComputerApp {
         createProcessorList();
         createRamList();
 
+        validateComponents(processorRepository.getProductList());
+        validateComponents(cdRomRepository.getProductList());
+        validateComponents(hddRepository.getProductList());
+        validateComponents(ramRepository.getProductList());
+
         assemble();
     }
 
@@ -49,6 +56,16 @@ public class AssembleComputerApp {
         System.out.println("Total computer price:" + myPC.getTotalPrice());
         System.out.println("=======================");
         System.out.println("=======================");
+    }
+
+    private <T extends Product> void validateComponents(List<T> products) {
+        ValidationService service = new ValidationServiceImpl();
+
+        for (T product : products) {
+            System.out.println("PRODUCT: " + product.getCode() + " IS " + (service.validate(product) ? "VALID" : "INVALID"));
+        }
+
+        System.out.println("===========================");
     }
 
     public static void main(String[] args) {
@@ -188,8 +205,8 @@ public class AssembleComputerApp {
         List<T> products = repository.getProductList();
 
         System.out.println("=======================");
-        for (T ram : products) {
-            System.out.println(ram);
+        for (T product : products) {
+            System.out.println(product);
         }
         System.out.println("=======================");
 

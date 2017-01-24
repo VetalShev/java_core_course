@@ -1,5 +1,9 @@
 package ru.vetalshev.chapter4.computer.components;
 
+import ru.vetalshev.chapter4.computer.annotations.Constraint;
+import ru.vetalshev.chapter4.computer.validators.CdRomValidator;
+
+@Constraint(validatedBy = CdRomValidator.class)
 public class CdRom extends Product {
 
     private String type;
