@@ -34,7 +34,7 @@ public class DemoHashMap {
 
         System.out.println("=========================");
 
-//        TODO(vetalshev): какой из переборов по hashMap лучше всего использовать?
+//        TODO(vetalshev): какой из переборов по hashMap лучше всего использовать? [RESOLVED]
 
 //        TODO(vetalshev): №1 перебор через итератор
         System.out.println("№1 перебор через итератор");
