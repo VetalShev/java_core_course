@@ -9,8 +9,19 @@ import java.util.*;
 public class StackDemo {
 
     public static void main(String[] args) {
-        String expression = "(2 + 2) * 4 [some expression]";
+        Test<String> tests = new Test<>();
 
+        tests.add("(2 + 2) * 4 [some expression]"); // correct expression with text
+        tests.add("(some text[]) * 4 [some expression]"); // correct expression with text
+        tests.add("()[]"); // correct expression
+        tests.add("(())[]"); // correct expression
+        tests.add("(()[]"); // absence of closing round bracket
+        tests.add("just test"); // expression without brackets
+        tests.add("]["); // start from closing bracket
+        tests.add("(){}[]"); // different type brackets
+        tests.add("(]"); // start from one type bracket and closing with another
+
+        tests.start();
 
 //        TODO(vetalshev): перебор строки - какой из подходов эффективнее??? [RESOLVED]
 //        for (char c : expression.toCharArray()) {
@@ -21,9 +32,12 @@ public class StackDemo {
 //            stack.add(c);
 //        }
 
-        boolean isValid = validateBrackets(expression);
+        for (String test: tests.getTestList()) {
+            boolean isValid = validateBrackets(test);
 
-        System.out.println("Expression \"" + expression + "\" is " + (isValid ? "valid" : "invalid"));
+            System.out.println("Expression \"" + test + "\" is " + (isValid ? "valid" : "invalid"));
+        }
+
     }
 
     /**

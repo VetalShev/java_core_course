@@ -1,8 +1,8 @@
 package ru.vetalshev.collections.homework.demo;
 
-import ru.vetalshev.collections.homework.service.RemoveEvenCircleService;
+import ru.vetalshev.collections.homework.service.KickEachSecondService;
+import ru.vetalshev.collections.homework.service.KickEachSecondServiceImpl;
 
-import java.text.DecimalFormat;
 import java.util.*;
 
 // В кругу стоят N человек, пронумерованных от 1 до N. При ведении счета
@@ -17,17 +17,16 @@ public class Demo1 {
         List<Integer> list1 = new LinkedList<>();
         List<Integer> list2 = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 40; i++) {
             list1.add(i);
             list2.add(i);
         }
 
-        RemoveEvenCircleService<Integer> removeEvenCircleService1 = new RemoveEvenCircleService<>(list1);
-        RemoveEvenCircleService<Integer> removeEvenCircleService2 = new RemoveEvenCircleService<>(list2);
+        KickEachSecondService<Integer> kickEachSecondService = new KickEachSecondServiceImpl<>();
 
         long startTimeLinkedList = System.nanoTime();
 
-        removeEvenCircleService1.start();
+        kickEachSecondService.start(list1);
 
         long endTimeLinkedList = System.nanoTime();
 
@@ -39,7 +38,7 @@ public class Demo1 {
 
         long startTimeArrayList = System.nanoTime();
 
-        removeEvenCircleService2.start();
+        kickEachSecondService.start(list2);
 
         long endTimeArrayList = System.nanoTime();
 

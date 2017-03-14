@@ -3,25 +3,23 @@ package ru.vetalshev.collections.homework.service;
 import java.util.Iterator;
 import java.util.List;
 
-public class RemoveEvenCircleService<T> {
+public class KickEachSecondServiceImpl<T> implements KickEachSecondService<T> {
 
-    private List<T> list;
-    private boolean isRemoved = true;
     private boolean printStepToStepResults = true;
 
-    public RemoveEvenCircleService(List<T> list) {
-        this.list = list;
+    public KickEachSecondServiceImpl() {
     }
 
-    public RemoveEvenCircleService(List<T> list, boolean printStepToStepResults) {
-        this.list = list;
+    public KickEachSecondServiceImpl(boolean printStepToStepResults) {
         this.printStepToStepResults = printStepToStepResults;
     }
 
-    public List<T> start() {
+    public List<T> start(List<T> list) {
+
+        boolean isRemoved = true;
 
         while (true) {
-            removeEven();
+            isRemoved = removeEven(list, isRemoved);
 
             if (list.size() < 2) {
                 break;
@@ -31,7 +29,7 @@ public class RemoveEvenCircleService<T> {
         return list;
     }
 
-    public void removeEven() {
+    private boolean removeEven(List<T> list, boolean isRemoved) {
         Iterator<T> it = list.iterator();
 
         while (it.hasNext()) {
@@ -47,6 +45,8 @@ public class RemoveEvenCircleService<T> {
         if (printStepToStepResults) {
             System.out.println(list);
         }
+
+        return isRemoved;
     }
 
     public boolean isPrintStepToStepResults() {

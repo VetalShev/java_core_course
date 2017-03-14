@@ -11,36 +11,27 @@ public class Surface {
     public Surface() {
     }
 
-//    public Surface(Set<Point> pointList) {
-//        this.pointList = pointList;
-//    }
-
-    public void add(Point point) { // addPoint
-//        // TODO: правильно ли так делать?
+    public void addPoint(Point point) {
+//        // TODO: правильно ли так делать? [RESOLVED]
 //        if (pointList == null) {
 //            pointList = new HashSet<>();
 //        }
 
         if (point == null) {
             throw new IllegalArgumentException("point can't be null");
-//            return false;
         }
 
         pointList.add(point);
-
-//        return true;
     }
 
-    // TODO: нормально ли использовать перегруженные методы в данном случае?
-    public boolean add(Line line) { // addLine
+    // TODO: нормально ли использовать перегруженные методы в данном случае? [RESOLVED]
+    public void addLine(Line line) {
 
         if (line == null) {
-            return false;
+            throw new IllegalArgumentException("point can't be null");
         }
 
         lineList.add(line);
-
-        return true;
     }
 
     @Override

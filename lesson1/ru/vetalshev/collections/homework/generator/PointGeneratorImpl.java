@@ -1,15 +1,15 @@
-package ru.vetalshev.collections.homework.service;
+package ru.vetalshev.collections.homework.generator;
 
 import ru.vetalshev.collections.homework.model.Point;
 
 import java.util.Random;
 
-public class PointGenerator {
+public class PointGeneratorImpl implements PointGenerator {
 
     private int MIN;
     private int MAX;
 
-    public PointGenerator(int MIN, int MAX) {
+    public PointGeneratorImpl(int MIN, int MAX) {
         this.MIN = MIN;
         this.MAX = MAX;
     }
