@@ -8,7 +8,7 @@ public class SyncMethodsDemo {
         Resource s = null;
 
         try {
-            s = new Resource("lesson1/ru/vetalshev/thread/example1/threadDemo.txt");
+            s = new Resource("src/ru/vetalshev/thread/example1/threadDemo.txt");
 
             SyncThread t1 = new SyncThread("First", s);
             SyncThread t2 = new SyncThread("Second", s);

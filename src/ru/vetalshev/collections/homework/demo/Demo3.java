@@ -32,7 +32,7 @@ public class Demo3 {
         Map<Integer, City> cityMap;
 
         try {
-            cityMap = getCityList("lesson1/ru/vetalshev/collections/cities.xml");
+            cityMap = getCityList("src/ru/vetalshev/collections/cities.xml");
         } catch (Exception ex) {
             throw new RuntimeException("File can't be imported", ex);
         }
