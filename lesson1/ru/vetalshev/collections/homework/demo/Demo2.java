@@ -3,8 +3,8 @@ package ru.vetalshev.collections.homework.demo;
 import ru.vetalshev.collections.homework.model.Line;
 import ru.vetalshev.collections.homework.model.Point;
 import ru.vetalshev.collections.homework.model.Surface;
-import ru.vetalshev.collections.homework.generator.PointGenerator;
-import ru.vetalshev.collections.homework.generator.PointGeneratorImpl;
+import ru.vetalshev.collections.homework.service.generator.PointGenerator;
+import ru.vetalshev.collections.homework.service.generator.RandomPointGeneratorImpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class Demo2 {
 
     public static void main(String[] args) {
         Surface surface = new Surface();
-        PointGenerator pointGenerator = new PointGeneratorImpl(0, 100);
+        PointGenerator pointGenerator = new RandomPointGeneratorImpl(0, 100);
 
         for (int i = 0; i < 5; i++) {
             surface.addPoint(pointGenerator.generate());

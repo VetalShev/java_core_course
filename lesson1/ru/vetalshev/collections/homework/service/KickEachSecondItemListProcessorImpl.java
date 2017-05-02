@@ -3,18 +3,18 @@ package ru.vetalshev.collections.homework.service;
 import java.util.Iterator;
 import java.util.List;
 
-public class KickEachSecondServiceImpl<T> implements KickEachSecondService<T> {
+public class KickEachSecondItemListProcessorImpl<T> implements ListProcessor<T> {
 
     private boolean printStepToStepResults = true;
 
-    public KickEachSecondServiceImpl() {
+    public KickEachSecondItemListProcessorImpl() {
     }
 
-    public KickEachSecondServiceImpl(boolean printStepToStepResults) {
+    public KickEachSecondItemListProcessorImpl(boolean printStepToStepResults) {
         this.printStepToStepResults = printStepToStepResults;
     }
 
-    public List<T> start(List<T> list) {
+    public void start(List<T> list) {
 
         boolean isRemoved = true;
 
@@ -26,7 +26,6 @@ public class KickEachSecondServiceImpl<T> implements KickEachSecondService<T> {
             }
         }
 
-        return list;
     }
 
     private boolean removeEven(List<T> list, boolean isRemoved) {

@@ -2,8 +2,8 @@ package ru.vetalshev.collections.homework.service;
 
 import java.util.List;
 
-public interface KickEachSecondService<T> {
+public interface ListProcessor<T> {
 
-    List<T> start(List<T> list);
+    void start(List<T> list);
 
 }

@@ -32,7 +32,7 @@ public class Demo3 {
         Map<Integer, City> cityMap;
 
         try {
-            cityMap = getCityList("C:\\cities.xml");
+            cityMap = getCityList("lesson1/ru/vetalshev/collections/cities.xml");
         } catch (Exception ex) {
             throw new RuntimeException("File can't be imported", ex);
         }
@@ -40,10 +40,12 @@ public class Demo3 {
         System.out.println(cityMap);
 
         City from = cityMap.get(1);
+        System.out.println("===========");
         System.out.println("FROM: " + from);
 
         City to = cityMap.get(6);
         System.out.println("TO: " + to);
+        System.out.println("===========");
 
         Route route = routeService.findOptimalRoute(from, to);
 
@@ -51,7 +53,7 @@ public class Demo3 {
     }
 
     private static Map<Integer, City> getCityList(String pathname)
-            throws ParserConfigurationException, SAXException, IOException {
+            throws Exception {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();

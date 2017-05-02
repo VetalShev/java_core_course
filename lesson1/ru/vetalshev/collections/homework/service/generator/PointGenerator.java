@@ -1,4 +1,4 @@
-package ru.vetalshev.collections.homework.generator;
+package ru.vetalshev.collections.homework.service.generator;
 
 import ru.vetalshev.collections.homework.model.Point;
 

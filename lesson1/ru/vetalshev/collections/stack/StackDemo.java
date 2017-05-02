@@ -34,8 +34,9 @@ public class StackDemo {
 
         for (String test: tests.getTestList()) {
             boolean isValid = validateBrackets(test);
+//            assert isValid; //TODO(vetalshev): make via assertion
 
-            System.out.println("Expression \"" + test + "\" is " + (isValid ? "valid" : "invalid"));
+            System.out.println("Test \"" + test + "\" is " + (isValid ? "valid" : "invalid"));
         }
 
     }
@@ -88,6 +89,17 @@ public class StackDemo {
 
         return lastCharType == currentCharType;
     }
+
+//    private static void testThatServiceOfExpressionValidationWorksCorrectly() {
+//
+//        "asd"
+//                true ==  service.validate("")
+//        testThatServiceOfExpressionValidationWorksCorrectly fails
+//
+//    }
+
+
+
 
 
     private static BracketEnum getBracketType(char bracket) {

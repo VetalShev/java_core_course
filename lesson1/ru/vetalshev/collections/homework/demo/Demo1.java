@@ -1,7 +1,7 @@
 package ru.vetalshev.collections.homework.demo;
 
-import ru.vetalshev.collections.homework.service.KickEachSecondService;
-import ru.vetalshev.collections.homework.service.KickEachSecondServiceImpl;
+import ru.vetalshev.collections.homework.service.ListProcessor;
+import ru.vetalshev.collections.homework.service.KickEachSecondItemListProcessorImpl;
 
 import java.util.*;
 
@@ -22,11 +22,11 @@ public class Demo1 {
             list2.add(i);
         }
 
-        KickEachSecondService<Integer> kickEachSecondService = new KickEachSecondServiceImpl<>();
+        ListProcessor<Integer> listProcessor = new KickEachSecondItemListProcessorImpl<>();
 
         long startTimeLinkedList = System.nanoTime();
 
-        kickEachSecondService.start(list1);
+        listProcessor.start(list1);
 
         long endTimeLinkedList = System.nanoTime();
 
@@ -38,7 +38,7 @@ public class Demo1 {
 
         long startTimeArrayList = System.nanoTime();
 
-        kickEachSecondService.start(list2);
+        listProcessor.start(list2);
 
         long endTimeArrayList = System.nanoTime();
 
