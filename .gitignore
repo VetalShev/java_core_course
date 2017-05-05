@@ -1,4 +1,5 @@
 .idea/
 *.class
+/out
 
 java_core_course.iml
